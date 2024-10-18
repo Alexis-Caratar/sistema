@@ -1,0 +1,11 @@
+/* Footer.css */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #fcfcfc;
+  color: #73777c;
+  width: 100%;
+  bottom: 0; /* Esto lo mantiene en la parte inferior */
+  left: 0; /* Asegúrate de que esté alineado a la izquierda */
+  z-index: 1000; /* Asegura que el footer esté encima de otros elementos */
+}

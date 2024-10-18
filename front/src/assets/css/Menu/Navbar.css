@@ -1,0 +1,112 @@
+/* Navbar.css */
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    color: #ffffff;
+    transition: margin-left 0.3s ease; /* Transición suave */
+}
+
+.navbar.collapsed {
+    margin-left: 0; /* Colapsar el margen */
+}
+
+.texto-color {
+    color: #000000 !important; /* Asegúrate de que el texto sea blanco */
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Efecto al pasar el ratón en el menú desplegable */
+}
+
+.navbar-toggler {
+    border-color: transparent; /* Esto elimina el borde predeterminado */
+}
+
+.navbar-toggler-icon {
+    background-color: rgb(128, 124, 124); /* Cambia el color de fondo del ícono */
+    color: #a7eac3;
+    border-radius: 20%;
+}
+
+/*..resto de tu CSS... */
+
+.notification-popup { /*mensajes*/
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1050; /* Asegúrate de que esté encima de otros elementos */
+    width: 300px; /* Ajusta el ancho según lo necesites */
+    right: 240px; /* Ajusta la posición */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.notification-popup1 { /*notification*/
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1050; /* Asegúrate de que esté encima de otros elementos */
+    width: 300px; /* Ajusta el ancho según lo necesites */
+    right: 120px; /* Ajusta la posición */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.notification-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    color:black;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+.notification-item:hover {
+    background-color: #a7eac3;
+    color:white;
+
+}
+
+.notification-popup1 {
+    max-width: 300px; /* Ajusta el ancho según sea necesario */
+}
+
+.notification-item {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    padding: 8px 10px; /* Espaciado interno */
+    border-bottom: 1px solid #eee;
+}
+
+.profile-pic {
+    width: 30px; /* Tamaño de la imagen */
+    height: 30px;
+    border-radius: 50%; /* Hace la imagen circular */
+    margin-right: 10px; /* Espacio entre imagen y texto */
+}
+
+.message-content {
+    font-size: 0.9em; /* Tamaño de letra más pequeño */
+}
+
+.message-content strong {
+    font-weight: bold; /* Mantiene el texto en negrita */
+}
+
+.message-content p {
+    margin: 0; /* Elimina márgenes */
+    font-size: 0.8em; /* Texto del mensaje más pequeño */
+    color: #555; /* Color del texto */
+}
+
+.message-content span {
+    font-size: 0.7em; /* Tamaño de la fecha */
+    color: #888; /* Color más claro para la fecha */
+}
+
+.notification-item:last-child {
+    border-bottom: none; /* Elimina el borde del último elemento */
+}

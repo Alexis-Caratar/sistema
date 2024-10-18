@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.sidebar {
+    background-color: #252e3b; /* Color primario */
+    width: 280px; /* Ancho del menú en escritorio */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+    padding: 1rem; 
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para el sidebar */
+    font-size: 15px;
+}
+
+.user-profile {
+    text-align: center;
+    margin-bottom: 1.5rem; /* Espacio entre el perfil y el menú */
+    color: #ffffff;
+}
+
+.user-image {
+    width: 80px; /* Tamaño de la imagen del usuario */
+    height: 80px; /* Tamaño de la imagen del usuario */
+    border-radius: 50%; /* Imagen redonda */
+    margin-bottom: 0.5rem; /* Espacio entre la imagen y el texto */
+    border: 2px solid #ffffff; /* Borde blanco alrededor de la imagen */
+    transition: transform 0.3s; /* Animación suave */
+}
+
+.user-image:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+.user-name {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.user-role {
+    font-size: 0.9rem;
+    color: #b0b0b0; /* Color gris para el rol */
+    margin: 0;
+}
+
+.sidebar-content {
+    padding: 1rem;
+}
+
+.sidebar .nav {
+    padding-left: 0; /* Sin sangría en la lista */
+}
+
+.sidebar .nav-link {
+    color: #848b93; /* Letras */
+    transition: background-color 0.3s ease; /* Transición suave */
+    display: flex; /* Para alinear icono y texto */
+    align-items: center; /* Centrar verticalmente */
+    padding: 10px 15px; /* Espacio interno */
+    border-radius: 0.25rem; /* Bordes redondeados */
+}
+
+.sidebar .nav-link:hover {
+    background-color: #29354a; /* Azul oscuro al pasar el ratón */
+    color: white;
+}
+
+.sidebar h5 {
+    color: #ffffff; /* Títulos en blanco */
+    margin-bottom: 1rem;
+}
+
+/* Responsividad */
+@media (max-width: 990px) {
+    .sidebar {
+        width: 200px; /* Ancho del menú en pantallas pequeñas */
+        position: fixed; /* Asegúrate de que el sidebar esté fijo en móviles */
+        top: 0; /* Alinearlo al top */
+        left: 0; /* Alinearlo a la izquierda */
+        height: 100vh; /* Asegúrate de que tenga altura completa */
+        z-index: 1050; /* Asegúrate de que esté sobre otros elementos */
+        transform: translateX(-100%); /* Ocultar inicialmente */
+        transition: transform 0.3s ease; /* Transición suave */
+    }
+
+    .sidebar.show {
+        transform: translateX(0); /* Mostrar cuando tenga la clase 'show' */
+    }
+
+    .sidebar .nav-link {
+        justify-content: flex-start; /* Alineación del texto en el menú */
+    }
+}
+
+.sidebar.d-none {
+    display: none;
+}
+
+.text-color {
+    color: aqua;
+}
+
+.text-color:hover {
+    color: #848b93;
+}
+
+/* Estilos para el ícono de salir y redes sociales */
+.socials {
+    margin-top: auto; /* Empuja esta sección hacia abajo */
+    padding: 1rem; /* Espaciado interno */
+    border-top: 1px solid #cccccc; /* Línea separadora */
+    color: #848b93; /* Color de texto para la sección */
+}
+
+.socials a {
+    color: #848b93; /* Color de los enlaces */
+    margin-right: 10px; /* Espacio entre íconos */
+    font-size: 1.5rem; /* Tamaño del ícono */
+    transition: color 0.3s; /* Transición suave */
+}
+
+.socials a:hover {
+    color: #ffffff; /* Color al pasar el ratón */
+}
