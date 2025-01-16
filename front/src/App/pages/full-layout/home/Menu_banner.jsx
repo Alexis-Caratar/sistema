@@ -11,7 +11,7 @@ function Header() {
       {/* Encabezado */}
       <header className="header">
         <div className="logo">
-          <a href="/" className="logo-text">IRIS WORD SHOP</a>
+        <img src="/src/assets/img/logos_principal/fondo.png" alt="Imagen 1" /> <a href="/" className="logo-text">IRIS WORLD SHOP</a>
         </div>
         <nav>
           <ul>
@@ -40,12 +40,7 @@ function Header() {
       <Products/>
       <Footer/>
 
-      {/* Icono de WhatsApp */}
-      <div className="whatsapp-icon">
-        <a href="https://wa.me/573162467600" target="_blank" rel="noopener noreferrer">
-          <FaWhatsapp size={50} color="#25D366" />
-        </a>
-      </div>
+    
     </div>
   );
 }
