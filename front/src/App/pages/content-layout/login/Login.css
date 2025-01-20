@@ -194,7 +194,7 @@
 
 
 /* From Uiverse.io by abrahamcalsin */ 
-button {
+.button-container button {
     position: relative;
     display: flex;
     justify-content: center;
@@ -208,7 +208,7 @@ button {
     border: none;
   }
   
-  button:after {
+  .button-container button:after {
     content: " ";
     width: 0%;
     height: 100%;
@@ -218,13 +218,13 @@ button {
     right: 0;
   }
   
-  button:hover::after {
+  .button-container button:hover::after {
     right: auto;
     left: 0;
     width: 100%;
   }
   
-  button span {
+  .button-container button span {
     text-align: center;
     text-decoration: none;
     width: 100%;
@@ -237,7 +237,7 @@ button {
     transition: all 0.3s ease-in-out;
   }
   
-  button:hover span {
+  .button-container button:hover span {
     animation: scaleUp 0.3s ease-in-out;
   }
   
