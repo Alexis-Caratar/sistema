@@ -1,0 +1,30 @@
+/* Estilo para el carrusel de imágenes */
+.image-slider {
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .image-container {
+    display: flex;
+    /* No usamos más la animación 'slide', se usará el movimiento continuo con 'animation' */
+    animation: moveSlider 16s linear infinite; /* Movimiento continuo */
+  }
+  
+  .image-container img {
+    width: 500%;
+    height: auto;
+    object-fit: cover;
+    max-height: 500px;
+  }
+  
+  /* Efectos del carrusel: animación continua */
+  @keyframes moveSlider {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-150%);
+    }
+  }
+  

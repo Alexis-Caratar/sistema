@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-import logo from '../../../../assets/img/logos_principal/logo_principal.jpeg';
+import logo from '../../../../assets/img/logos_principal/logo_principal.png';
 import { FiEye, FiEyeOff } from 'react-icons/fi'; 
 import { FaFacebook, FaInstagram, FaYoutube, FaEnvelope } from 'react-icons/fa'; 
 

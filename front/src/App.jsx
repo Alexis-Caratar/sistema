@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Dashboard from './App/shared/menu/Dasboard'; // Ajusta la ruta según tu estructura de carpetas
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Home from './App/pages/full-layout/home/Menu_banner'; // Home
-import Login from './App/pages/content-layout/login/Login'; // Importa tu componente de inicio de sesión
-
+import Principal from './App/pages/full-layout/Menu/principal'; // Importa el componente Principal
 
 function App() {
   return (
       <Router>
           <Routes>
-          <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="*" element={<Principal />} /> {/* Añadimos "*" para manejar subrutas dentro de Principal */}
           </Routes>
       </Router>
   );

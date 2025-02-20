@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiBell, FiMessageCircle, FiUser, FiSettings, FiHelpCircle, FiBarChart, FiInfo, FiLogOut } from 'react-icons/fi';
-import logo from '../../../assets/img/logos_principal/logo_principal.jpeg';
+import logo from '../../../assets/img/logos_principal/logo_principal.png';
 import avatar from '../../../assets/img/avatars/avatar.jpg';
 import './../../../assets/css/Menu/Navbar.css';
 

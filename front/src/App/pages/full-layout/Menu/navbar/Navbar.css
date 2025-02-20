@@ -1,0 +1,50 @@
+/* Navbar.css */
+
+/* Estilo para el header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  color: #fff;
+}
+
+/* Logo */
+.logo img {
+  width: 200px;
+  height: 150px;
+  margin-left: 100px;
+}
+
+/* Menú de navegación */
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #3498db;
+}
+
+/* Iconos */
+nav ul li a svg {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+
