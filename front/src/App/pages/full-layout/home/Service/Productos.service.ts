@@ -63,4 +63,29 @@ export const ProductosService = [
   description: 'Camiseta cómoda para el verano.',
   moreInfo: 'Disponible en varios colores y tamaños.',
 },
+{
+  id: 9,
+  name: 'Camiseta de Manga Larga',
+  price: 190.99,
+  image: 'https://lukshop.vtexassets.com/arquivos/ids/794185-800-auto?v=638345355246700000&width=800&height=auto&aspect=true',
+  description: 'Camiseta de manga larga, cómoda y moderna.',
+  moreInfo: 'Disponible en varios colores.',
+},
+{
+  id: 10,
+  name: 'Camiseta de Manga Corta',
+  price: 150.99,
+  image: 'https://lukshop.vtexassets.com/arquivos/ids/794185-800-auto?v=638345355246700000&width=800&height=auto&aspect=true',
+  description: 'Camiseta cómoda para el verano.',
+  moreInfo: 'Disponible en varios colores y tamaños.',
+},
+{
+  id: 11,
+  name: 'Camiseta de Manga Larga',
+  price: 119.99,
+  image: 'https://lukshop.vtexassets.com/arquivos/ids/794185-800-auto?v=638345355246700000&width=800&height=auto&aspect=true',
+  description: 'Camiseta de manga larga, cómoda y moderna.',
+  moreInfo: 'Disponible en varios colores.',
+},
+
 ];
