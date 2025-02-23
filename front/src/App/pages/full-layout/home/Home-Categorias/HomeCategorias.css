@@ -1,0 +1,49 @@
+.home-categorias-container {
+    width: 90%; /* Ancho para que ocupe más espacio */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Esconde lo que se desborda */
+    position: relative;
+    text-align: center; /* Centrado de texto */
+  }
+  
+  h2 {
+    font-size: 36px; /* Título más grande */
+    margin-bottom: 20px;
+  }
+  
+  .home-categorias-list {
+    display: flex;
+    transition: transform 5s ease-in-out; /* Desplazamiento suave (5 segundos) */
+    width: 100%; /* Hace que se vea una sola categoría a la vez */
+  }
+  
+  .home-categoria-item {
+    width: 25%; /* Aseguramos que cada categoría ocupe el 25% del contenedor */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .home-categoria-item img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho de su contenedor */
+    height: 200px; /* Fijamos un alto fijo para todas las imágenes */
+    object-fit: cover; /* Para que la imagen se recorte y ajuste sin distorsionarse */
+    border-radius: 8px;
+    margin-bottom: 20px; /* Más espacio debajo de la imagen */
+  }
+  
+  .home-categoria-item h3 {
+    font-size: 24px; /* Título de tamaño mediano */
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .home-categoria-item p {
+    font-size: 18px;
+    color: #555;
+  }
+  

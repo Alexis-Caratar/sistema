@@ -89,3 +89,22 @@ export const ProductosService = [
 },
 
 ];
+
+/*consulta para categorias de mis productos */
+
+export const categories = [
+  { name: 'Camisas,Pantalon dama', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Camisas,Pantalon Caballero', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Camisa ,Pantalon Niño', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Camisa ,Pantalon Bebe', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Chaquetas Dama', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Chaquetas caballero', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Caquetas Niño', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Zapatos Dama', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Zapatos Caballero', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Zapatos niño', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Especial', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Accessorios', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Ropa Nacional', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+  { name: 'Ropa Inportada', image: 'https://img.freepik.com/foto-gratis/vista-aerea-bolsa-viaje-trajes-femeninos-flores_23-2147856143.jpg' },
+];

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import FloatingCart from '../carrito/Carrito_flotante/FloatingCart';
-import InfoAditional from './Info-Aditional/info_aditional';  // Asegúrate de que la ruta sea correcta
+import InfoAditional from './Info-Aditional/info_aditional';  
+import HomeCategorias from './Home-Categorias/HomeCategorias';  
+
 import './ProductCards.css';
 import { ProductosService } from './Service/Productos.service';
 
@@ -75,7 +77,12 @@ function ProductCards() {
         getCartTotal={getCartTotal} 
       />
 
+        {/*componente para la informacion de las categorias que tiene mi tienda*/}
+        <HomeCategorias/>
+        
+      {/*componente para la informacion adicional al pie de la pagina principal*/}
       <InfoAditional/>
+      
     </div>
   );
 }
