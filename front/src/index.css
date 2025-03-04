@@ -1,13 +1,113 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+/* Definimos los colores */
+:root {
+  --color-principal: #1d1d1d;
+  --color-secundario: #ebe6da;
+  --color-blanco: #ffffff;
+  --color-gris-claro: #f0f0f0;
+  --color-gris-medio: #808080;
+  --color-exito: #4caf50;
+  --color-advertencia: #ffeb3b;
+  --color-error: #f44336;
+  --color-fondo-principal: #fafafa;
+  --color-fondo-secundario: #f3f3f3;
+  --color-acento: #97633A;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Estilos generales de la página */
+body {
+  background-color: var(--color-fondo-principal);
+  color: var(--color-principal);
+  font-family: 'Diolin','Arial', sans-serif;
+}
+
+/* Estilo de los botones */
+button {
+  background-color: var(--color-secundario);
+  color: var(--color-principal);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-acento);
+}
+
+/* Botones de acción */
+button.success {
+  background-color: var(--color-exito);
+  color: var(--color-blanco);
+}
+
+button.success:hover {
+  background-color: darkgreen;
+}
+
+button.warning {
+  background-color: var(--color-advertencia);
+  color: var(--color-blanco);
+}
+
+button.warning:hover {
+  background-color: gold;
+}
+
+button.error {
+  background-color: var(--color-error);
+  color: var(--color-blanco);
+}
+
+button.error:hover {
+  background-color: darkred;
+}
+
+/* Links */
+a {
+  color: var(--color-principal);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-blanco);
+}
+
+/* Fondo de secciones */
+.section {
+  background-color: var(--color-fondo-secundario);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.header {
+  background-color: var(--color-secundario);
+  color: var(--color-principal);
+  padding: 20px;
+}
+
+.footer {
+  background-color: var(--color-secundario);
+  color: var(--color-principal);
+  text-align: center;
+  padding: 20px;
+}
+
+/* Tarjetas de productos */
+.product-card {
+  background-color: var(--color-fondo-principal);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 0.9em;
+  color: var(--color-gris-medio);
 }

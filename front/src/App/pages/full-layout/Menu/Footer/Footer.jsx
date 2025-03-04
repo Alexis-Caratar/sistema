@@ -7,7 +7,7 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-logo">
           <img 
-            src="/src/assets/img/logos_principal/logo.png" 
+            src="/src/assets/img/logos_principal/logo_principal.png" 
             alt="Logo de Mi Tienda" 
           />
         </div>

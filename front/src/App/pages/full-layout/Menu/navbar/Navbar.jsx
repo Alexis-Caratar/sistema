@@ -8,7 +8,7 @@ function Navbar() {
       {/* Encabezado */}
       <header className="header">
         <div className="logo">
-          <img src='/src/assets/img/logos_principal/logo.png' alt="Logo" />
+          <img src='/src/assets/img/logos_principal/logo_principal.png' alt="Logo" />
         </div>
         <nav>
           <ul>
