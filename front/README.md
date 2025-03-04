@@ -9,3 +9,4 @@ Currently, two official plugins are available:
 
 sistema de informacion para ecomer por el lado de adminitrador
 para inciar el proyecto del front ingresar a front y darle los siguientes comandos npm run dev
+probando el git
