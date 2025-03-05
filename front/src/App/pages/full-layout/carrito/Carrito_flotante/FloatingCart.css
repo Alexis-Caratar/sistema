@@ -1,165 +1,149 @@
+/* Estilo para el ícono del carrito flotante */
 .cart-icon {
   position: fixed;
+  width: 90px;
+  height: 80px;
+  background-color: #ff9800;
   bottom: 20px;
   right: 20px;
-  background-color: #ff6347;
-  padding: 10px;
   border-radius: 50%;
+  padding: 10px;
   cursor: pointer;
-  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 }
 
-.cart-icon-wrapper {
-  position: relative;
+.cart-icon:hover {
+  background-color: #f57c00;
 }
 
-.cart-count {
+.cart-icon .cart-count {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: #fff;
-  color: #ff6347;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
   border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
+  padding: 5px;
+  font-size: 18px;
 }
 
 .cart-modal {
   position: fixed;
-  right: 0;
   top: 0;
-  width: 350px;
+  right: 0;
+  background-color: #fff;
+  width: 400px;
   height: 100%;
-  background-color: white;
-  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  z-index: 1001;
-  display: flex;
-  flex-direction: column;
   overflow-y: auto;
+  z-index: 999;
 }
 
-.minimize-btn {
-  background-color: #ff6347;
-  color: white;
-  padding: 5px 10px;
+.cart-modal h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.cart-modal button {
   border: none;
+  padding: 10px;
   cursor: pointer;
-  align-self: flex-start;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
-.cart-items {
+
+/* Estilo para los elementos del carrito */
+.cart-modal ul {
   list-style-type: none;
   padding: 0;
-  flex-grow: 1;
 }
 
-.cart-item {
+.cart-modal li {
   display: flex;
-  margin-bottom: 15px;
+  align-items: center;
+  margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
 
-.cart-item-image {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
+.cart-modal img {
+  width: 50px; /* Ajusta el tamaño de la imagen aquí */
+  height: 50px; /* Ajusta el tamaño de la imagen aquí */
+  object-fit: cover; /* Asegura que la imagen mantenga su proporción */
   margin-right: 10px;
 }
 
-.cart-item-details {
-  flex-grow: 1;
+.cart-modal div {
+  margin-right: 10px;
 }
 
-.item-name {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.item-price {
-  font-size: 14px;
-  color: #777;
-}
-
-.item-subtotal {
-  margin-top: 5px;
-  font-size: 12px; /* Letra pequeña */
-  color: #777;
-  font-weight: bold;
-}
-
-.quantity-controls {
+.cart-modal .quantity-controls {
   display: flex;
   align-items: center;
-  margin-top: 5px;
+  margin-right: 10px;
 }
 
-.quantity-btn {
-  background-color: #f0f0f0;
+.cart-modal .quantity-controls button {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
   padding: 5px 10px;
-  border: 1px solid #ccc;
   cursor: pointer;
 }
 
-.quantity-display {
-  margin: 0 10px;
-  font-size: 16px;
+.cart-modal .quantity-controls span {
+  margin: 0 5px;
 }
 
-.remove-btn {
-  background-color: #ff6347;
-  color: white;
-  padding: 5px 10px;
+/* Botón de minimizar */
+.minimize-btn {
+  background-color: transparent;
   border: none;
-  cursor: pointer;
-  margin-top: 5px;
-}
-
-.cart-total {
-  margin-top: 20px;
-  font-weight: bold;
   font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #000;
 }
 
-.checkout-btn {
-  width: 100%;
-  border-radius: 20%;
-  background-color: #149243;
+.minimize-btn:hover {
+  color: #444;
+}
+
+/* Botón de eliminar */
+.cart-modal .remove-btn {
+  background-color: #f44336;
   color: white;
-  padding: 10px;
-  border: none;
+  padding: 5px 10px;
   cursor: pointer;
-  text-align: center;
+  border-radius: 5px;
+  border: none;
+}
+
+.cart-modal .remove-btn:hover {
+  background-color: #e53935;
+}
+
+/* Total y botón de checkout */
+.cart-modal .cart-total {
+  font-weight: bold;
   margin-top: 20px;
 }
 
-
-/* Estilo para el botón de WhatsApp fuera del carrito */
-.whatsapp-chat {
-  position: fixed;
-  bottom: 100px;  /* Establecer una distancia mayor desde el fondo */
-  right: 20px;
-  z-index: 100;
-}
-
-.whatsapp-button {
-  display: inline-block;
-  background-color: #25D366;
-  border-radius: 50%;
+.cart-modal .checkout-btn {
+  width: 100%;
   padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-.whatsapp-icon {
-  width: 50px; /* Ajusta el tamaño del ícono */
-  height: 50px;
-}
-
-.whatsapp-button:hover {
-  background-color: #128C7E;
+.cart-modal .checkout-btn:hover {
+  background-color: #218838;
 }

@@ -3,15 +3,17 @@
 :root {
   --color-principal: #1d1d1d;
   --color-secundario: #ebe6da;
+  --color-tercero: #1f4a54;
   --color-blanco: #ffffff;
   --color-gris-claro: #f0f0f0;
   --color-gris-medio: #808080;
   --color-exito: #4caf50;
+  --color-delete: #ff4d4f;
   --color-advertencia: #ffeb3b;
   --color-error: #f44336;
   --color-fondo-principal: #fafafa;
   --color-fondo-secundario: #f3f3f3;
-  --color-acento: #97633A;
+  --color-acento: #Dbc9b8;
 }
 
 /* Estilos generales de la página */
@@ -46,6 +48,16 @@ button.success:hover {
   background-color: darkgreen;
 }
 
+button.delete {
+  background-color: var(--color-delete);
+  color: var(--color-blanco);
+}
+
+button.delete:hover {
+  background-color: #ff1a1a;
+}
+
+
 button.warning {
   background-color: var(--color-advertencia);
   color: var(--color-blanco);
@@ -64,6 +76,22 @@ button.error:hover {
   background-color: darkred;
 }
 
+button.principal-card {
+  background-color: var(--color-tercero);
+  color: var(--color-blanco);
+}
+
+button.principal-card:hover {
+  background-color: #1f4a59;
+}
+
+.cart-item-quantity button{
+  background-color: #28a745;
+  color: white;
+}
+.cart-item-quantity button:hover {
+  background-color: #218838;
+}
 /* Links */
 a {
   color: var(--color-principal);
@@ -74,6 +102,13 @@ a:hover {
   color: var(--color-blanco);
 }
 
+.precio{
+  color: var(--color-tercero);
+  font-size: 2rem;  /* Tamaño de fuente */
+  font-weight: bold; /* Fuente en negrita */
+  font-family: 'Arial', sans-serif; /* Puedes elegir otra fuente que sea más gruesa */
+  font-stretch: expanded; /* Esto hace que las letras sean más anchas */
+}
 /* Fondo de secciones */
 .section {
   background-color: var(--color-fondo-secundario);

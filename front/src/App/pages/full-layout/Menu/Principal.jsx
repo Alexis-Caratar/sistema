@@ -13,7 +13,7 @@ function Principal() {
   const [cart, setCart] = useState([]);
   const [isCartMinimized, setIsCartMinimized] = useState(true);
 
-  // Recuperar carrito desde localStorage cuando el componente se monta
+  // Cargar carrito desde localStorage cuando el componente se monta
   useEffect(() => {
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
@@ -21,6 +21,22 @@ function Principal() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.removeItem('cart'); // Eliminar carrito antes de recargar la página
+    };
+
+    // Asignar el evento beforeunload
+    window.onbeforeunload = handleBeforeUnload;
+
+    // Cleanup cuando el componente se desmonte
+    return () => {
+      window.onbeforeunload = null; // Limpiar el evento
+    };
+  }, []); // Este useEffect se ejecuta solo una vez al montar el componente
+
+
+  
   // Guardar carrito en localStorage cada vez que cambie el estado de `cart`
   useEffect(() => {
     if (cart.length > 0) {
@@ -30,19 +46,6 @@ function Principal() {
     }
   }, [cart]);
 
-  // Eliminar carrito en localStorage al recargar la página
-  useEffect(() => {
-    // Esto se ejecutará una vez cuando el componente se monte
-    window.onbeforeunload = () => {
-      localStorage.removeItem('cart'); // Eliminar carrito antes de recargar
-    };
-    
-    // Cleanup cuando el componente se desmonte
-    return () => {
-      window.onbeforeunload = null; // Limpiar el evento
-    };
-  }, []); // Se ejecuta solo una vez al cargar el componente
-
   // Función para alternar la visibilidad del carrito
   const toggleCart = () => {
     setIsCartMinimized((prevState) => !prevState);
@@ -50,7 +53,7 @@ function Principal() {
 
   // Función para calcular el total del carrito
   const getCartTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    return cart.reduce((total, item) => total + item.precio * item.quantity, 0).toFixed(2);
   };
 
   // Función para actualizar el carrito (agregar o quitar productos)
@@ -58,9 +61,30 @@ function Principal() {
     setCart(updateFn);
   };
 
+  // Función para agregar productos al carrito
+  const addToCart = (product) => {
+    console.log('Producto añadido al carrito:', product);
+
+    setCart((prevCart) => {
+      // Verificar si el producto ya está en el carrito
+      const existingProduct = prevCart.find((item) => item.id === product.id);
+
+      if (existingProduct) {
+        // Si el producto ya existe, incrementar la cantidad
+        const updatedCart = prevCart.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+        return updatedCart;
+      } else {
+        // Si el producto no existe, agregarlo al carrito con cantidad 1
+        const updatedCart = [...prevCart, { ...product, quantity: 1 }];
+        return updatedCart;
+      }
+    });
+  };
+
   return (
     <div>
-      {/* Componente de navegación */}
       <Navbar />
 
       {/* Componente de carrito flotante */}
@@ -74,20 +98,16 @@ function Principal() {
 
       {/* Rutas principales */}
       <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/categories" element={<Categories />} />
-        
-        {/* Pasamos las props correctamente al componente Cart */}
+        <Route path="/" element={<Welcome  addToCart={addToCart}/>} />
+        <Route path="/categories" element={<Categories addToCart={addToCart} />} />
         <Route 
           path="/cart" 
           element={<Cart cart={cart} getCartTotal={getCartTotal} updateCart={updateCart} />} 
         />
-        
         <Route path="/Nosotros" element={<Nosotros />} />
         <Route path="/login" element={<Login />} />
       </Routes>
 
-      {/* Pie de página */}
       <Footer />
     </div>
   );

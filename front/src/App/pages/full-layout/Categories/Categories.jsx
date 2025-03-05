@@ -1,46 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import './Categorias.css';  // Asegúrate de que tengas tu archivo CSS
-import { categoriesData } from './Service/Categorias.service'; // Importar desde Categorias.service.ts
-import ProductModal from './Modal/ProductModal'; // Importa el componente ProductModal
+import './Categorias.css';
+import { categoriesData } from './Service/Categorias.service';
+import ProductModal from './Modal/ProductModal';
 
-function Categories() {
+function Categories({ addToCart }) {
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null); // Estado para la categoría seleccionada
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Cargar las categorías desde el servicio
   useEffect(() => {
     setCategories(categoriesData.categories);
-    setSelectedCategory(categoriesData.categories[0]); // Seleccionar la primera categoría por defecto
+    setSelectedCategory(categoriesData.categories[0]); // Establecer la primera categoría como seleccionada
   }, []);
 
-  // Función para manejar la selección de categoría
   const handleCategorySelect = (categoryId) => {
     const category = categoriesData.categories.find((cat) => cat.id === categoryId);
     setSelectedCategory(category);
   };
 
-  // Función para abrir la modal con el producto seleccionado
   const openModal = (product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
 
-  // Función para cerrar la modal
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProduct(null);
   };
 
-  // Función para añadir al carrito
-  const addToCart = (product) => {
-    // Aquí puedes agregar la lógica para agregar el producto al carrito
-    console.log('Producto añadido al carrito:', product);
-  };
-
   return (
     <div className="categories-container">
+      {/* Sidebar de categorías */}
       <div className="categories-sidebar">
         <h3>Categorías</h3>
         <ul className="category-list">
@@ -56,6 +47,7 @@ function Categories() {
         </ul>
       </div>
 
+      {/* Contenedor de productos */}
       <div className="products-container">
         {selectedCategory ? (
           <>
@@ -63,12 +55,27 @@ function Categories() {
             <div className="product-cards">
               {selectedCategory.products.map((product) => (
                 <div key={product.id} className="product-card">
-                  <img src={product.imagen_principal} alt={product.nombre} className="product-image" />
+                  <img
+                    src={product.imagen_principal}
+                    alt={product.nombre}
+                    className="product-image"
+                  />
                   <h4>{product.nombre}</h4>
                   <p>{product.descripcion}</p>
-                  <div className="price">${product.precio}</div>
-                  <button className="view-details-btn" onClick={() => openModal(product)}>
+                  <div className="precio">
+                    {new Intl.NumberFormat('es-CO').format(product.precio)}
+                  </div>
+                  <button
+                    className="view-details-btn"
+                    onClick={() => openModal(product)}
+                  >
                     Ver detalles
+                  </button>
+                  <button
+                    className="principal-card"
+                    onClick={() => addToCart(product)}  // Usar la función addToCart pasada por prop
+                  >
+                    Añadir al carrito
                   </button>
                 </div>
               ))}
@@ -79,12 +86,12 @@ function Categories() {
         )}
       </div>
 
-      {/* Mostrar modal cuando se selecciona un producto */}
+      {/* Mostrar el modal cuando se selecciona un producto */}
       {isModalOpen && (
         <ProductModal
           product={selectedProduct}
           onClose={closeModal}
-          onAddToCart={addToCart}
+          onAddToCart={addToCart}  // Pasar la función addToCart también al modal
         />
       )}
     </div>

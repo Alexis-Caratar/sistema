@@ -1,90 +1,119 @@
-import React, { useState, useEffect } from 'react';
-import FloatingCart from '../carrito/Carrito_flotante/FloatingCart';
-import InfoAditional from './Info-Aditional/info_aditional';  
-import HomeCategorias from './Home-Categorias/HomeCategorias';  
-
+import React, { useState, useEffect } from 'react';  
 import './ProductCards.css';
-import { ProductosService } from './Service/Productos.service';
+import { ProductosHomeService } from './Service/Productos.service';
+import ProductModal from './../Categories/Modal/ProductModal';
 
-function ProductCards() {
-  const [cart, setCart] = useState([]);
-  const [isCartMinimized, setIsCartMinimized] = useState(true);
+/*
+import InfoAditional from './Info-Aditional/info_aditional';  
+import HomeCategorias from './Home-Categorias/HomeCategorias';
+*/
+function ProductCards({addToCart}) {
+  
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Cargar carrito desde localStorage cuando el componente se monta
   useEffect(() => {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-      setCart(JSON.parse(savedCart)); // Parsear los datos del carrito
-    }
-  }, []); // Este useEffect solo se ejecutará una vez cuando el componente se monte
+    setCategories(ProductosHomeService.categories);
+    setSelectedCategory(ProductosHomeService.categories[0]); // Establecer la primera categoría como seleccionada
+  }, []);
 
-  // Función para agregar productos al carrito
-  const addToCart = (product) => {
-    setCart((prevCart) => {
-      // Verificar si el producto ya está en el carrito
-      const existingProduct = prevCart.find((item) => item.id === product.id);
-      
-      if (existingProduct) {
-        // Si el producto ya existe en el carrito, incrementar la cantidad
-        const updatedCart = prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-        // Guardar el carrito actualizado en localStorage
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
-        return updatedCart;
-      } else {
-        // Si no existe, agregar el producto al carrito con cantidad 1
-        const updatedCart = [...prevCart, { ...product, quantity: 1 }];
-        // Guardar el carrito actualizado en localStorage
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
-        return updatedCart;
-      }
-    });
+  const handleCategorySelect = (categoryId) => {
+    const category = ProductosHomeService.categories.find((cat) => cat.id === categoryId);
+    setSelectedCategory(category);
   };
 
-  // Función para calcular el total del carrito
-  const getCartTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+  const openModal = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
   };
 
-  // Función para alternar el estado del carrito (minimizado / expandido)
-  const toggleCart = () => {
-    setIsCartMinimized((prevState) => !prevState);
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
   };
 
   return (
-    <div className="container">
-      <h2 className='text-center h2'>Productos destacados</h2><br/>
-      <div className="product-cards">
-        {ProductosService.map((product) => (
-          <div key={product.id} className="card">
-            <img src={product.image} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <div className="price">${product.price}</div>
-            <button onClick={() => addToCart(product)} className="btn btn-dark w-100">
-              Agregar al carrito
-            </button>
-          </div>
-        ))}
+    <div className="categories-container">
+      {/* Sidebar de categorías */}
+      <div className="categories-sidebar">
+        <h3>Categorías</h3>
+        <ul className="category-list">
+          {categories.map((category) => (
+            <li
+              key={category.id}
+              onClick={() => handleCategorySelect(category.id)}
+              className={`category-item ${selectedCategory?.id === category.id ? 'active' : ''}`}
+            >
+              {category.nombre}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      {/* Aquí estamos pasando las props a FloatingCart */}
-      <FloatingCart 
-        cart={cart} 
-        isCartMinimized={isCartMinimized} 
-        toggleCart={toggleCart} 
-        getCartTotal={getCartTotal} 
-      />
+      {/* Contenedor de productos */}
+      <div className="products-container">
+        {selectedCategory ? (
+          <>
+            <h3>Productos de {selectedCategory.nombre}</h3>
+            <div className="product-cards">
+              {selectedCategory.products.map((product) => (
+                <div key={product.id} className="product-card">
+                  <img
+                    src={product.imagen_principal}
+                    alt={product.nombre}
+                    className="product-image"
+                  />
+                  <h4>{product.nombre}</h4>
+                  <p>{product.descripcion}</p>
+                  <div className="precio">
+                    {new Intl.NumberFormat('es-CO').format(product.precio)}
+                  </div>
+                  <button
+                    className="view-details-btn"
+                    onClick={() => openModal(product)}
+                  >
+                    Ver detalles
+                  </button>
+                  <button
+                    className="principal-card"
+                    onClick={() => addToCart(product)}  // Usar la función addToCart pasada por prop
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <p>Selecciona una categoría para ver los productos.</p>
+        )}
+      </div>
+
+      {/* Mostrar el modal cuando se selecciona un producto */}
+      {isModalOpen && (
+        <ProductModal
+          product={selectedProduct}
+          onClose={closeModal}
+          onAddToCart={addToCart}  // Pasar la función addToCart también al modal
+        />
+      )}
+
 
         {/*componente para la informacion de las categorias que tiene mi tienda*/}
-        <HomeCategorias/>
+        {/* <HomeCategorias/>
         
       {/*componente para la informacion adicional al pie de la pagina principal*/}
-      <InfoAditional/>
+      {/*<InfoAditional/> */}
       
     </div>
   );
 }
 
 export default ProductCards;
+
+
+
+
+

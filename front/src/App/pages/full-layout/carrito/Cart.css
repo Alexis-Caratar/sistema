@@ -1,66 +1,94 @@
-/* src/App/pages/Cart/Cart.css */
+/* Estilos para el contenedor del carrito */
 .cart-container {
-    padding: 20px;
-    background-color: #f4f4f4;
-  }
-  
-  .cart-items {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .cart-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .cart-item-image {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    margin-right: 20px;
-  }
-  
-  .cart-item-details {
-    flex: 1;
-  }
-  
-  .quantity-controls {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .quantity-btn {
-    background-color: #ddd;
-    padding: 5px 10px;
-    margin: 0 5px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .remove-btn {
-    background-color: #ff4d4d;
-    color: white;
-    padding: 5px 10px;
-    margin-top: 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .cart-total {
-    margin-top: 20px;
-  }
-  
-  .checkout-btn {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 20px;
-  }
-  
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.cart-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.empty-cart-message {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  margin-top: 40px;
+}
+
+/* Estilos para la lista de productos del carrito */
+.cart-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart-item-price,
+.cart-item-quantity,
+.cart-item-total {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-quantity button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.delete {
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+
+/* Estilos para el total y botón de checkout */
+.cart-total {
+  text-align: right;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.checkout-section {
+  text-align: center;
+  margin-top: 30px;
+}

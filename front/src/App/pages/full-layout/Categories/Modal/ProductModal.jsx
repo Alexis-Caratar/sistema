@@ -3,23 +3,20 @@ import './ProductModal.css';  // Asegúrate de que el archivo CSS esté incluido
 
 const ProductModal = ({ product, onClose, onAddToCart }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isImageExpanded, setIsImageExpanded] = useState(false); // Estado para controlar si la imagen está expandida
+  const [isImageExpanded, setIsImageExpanded] = useState(false);
 
-  // Función para navegar a la imagen siguiente
   const nextImage = () => {
     if (currentImageIndex < product.imagenes_adicionales.length - 1) {
       setCurrentImageIndex(currentImageIndex + 1);
     }
   };
 
-  // Función para navegar a la imagen anterior
   const prevImage = () => {
     if (currentImageIndex > 0) {
       setCurrentImageIndex(currentImageIndex - 1);
     }
   };
 
-  // Función para manejar el clic en la imagen para ampliar
   const handleImageClick = () => {
     setIsImageExpanded(!isImageExpanded);
   };
@@ -72,7 +69,6 @@ const ProductModal = ({ product, onClose, onAddToCart }) => {
               <h2>{product.nombre}</h2>
               <p className="product-description">{product.descripcion}</p>
 
-              {/* Información adicional: Celda izquierda con características y celda derecha con precio/valoración */}
               <div className="product-info-container">
                 <div className="product-info-left">
                   <div><strong>Cantidad:</strong> {product.cantidad}</div>
@@ -85,11 +81,11 @@ const ProductModal = ({ product, onClose, onAddToCart }) => {
                 </div>
 
                 <div className="product-info-right">
-                  <div className="product-price">${product.precio}</div>
                   <div className="product-rating">
                     <strong>Valoración:</strong>
                     <div>{renderStars(product.valoracion)}</div>
                   </div>
+                  <div className="precio">${new Intl.NumberFormat('es-CO').format(product.precio)}</div>
                 </div>
               </div>
 
